@@ -1,0 +1,125 @@
+/* ===== Design System — 现在吃啥 v2 ===== */
+:root {
+  /* Brand */
+  --brand-400: #ff8c5a;
+  --brand-500: #ff6b35;
+  --brand-600: #e55a2b;
+
+  /* Accent */
+  --accent-400: #f9c846;
+  --accent-500: #f7c948;
+
+  /* Surface */
+  --surface-0: #ffffff;
+  --surface-50: #fefaf5;
+  --surface-100: #fff5eb;
+  --surface-200: #ffedd5;
+
+  /* Glass */
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+
+  /* Text */
+  --text-primary: #1a1a2e;
+  --text-secondary: #5a5a7a;
+  --text-tertiary: #9999b0;
+
+  /* Misc */
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+
+  --font-sans: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', -apple-system, sans-serif;
+  --font-mono: 'SF Mono', 'JetBrains Mono', 'Menlo', monospace;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.08);
+  --shadow-glow: 0 0 40px rgba(255, 107, 53, 0.15);
+
+  /* Slot machine */
+  --slot-bg: #0f0f23;
+  --slot-machine-border: #1a1a35;
+}
+
+/* Dark mode */
+html.dark {
+  --surface-0: #12122a;
+  --surface-50: #161630;
+  --surface-100: #1a1a38;
+  --surface-200: #222248;
+
+  --glass-bg: rgba(18, 18, 42, 0.78);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+
+  --text-primary: #e8e8f0;
+  --text-secondary: #9999b8;
+  --text-tertiary: #666688;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 40px rgba(255, 107, 53, 0.25);
+}
+
+/* ===== Reset ===== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--surface-50);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.6;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* Subtle grid background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.03;
+  background-image:
+    linear-gradient(var(--text-secondary) 1px, transparent 1px),
+    linear-gradient(90deg, var(--text-secondary) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+/* Gradient orbs */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 10%, rgba(255, 107, 53, 0.06), transparent),
+    radial-gradient(ellipse 60% 50% at 80% 90%, rgba(247, 201, 72, 0.05), transparent);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--text-tertiary); border-radius: 4px; }
